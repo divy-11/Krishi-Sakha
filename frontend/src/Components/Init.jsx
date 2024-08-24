@@ -36,7 +36,7 @@ const Init = () => {
                     For More Information Head Over To The Dashboard Section!
                 </p>
                 <button className="mt-6 text-xl px-6 py-3 bg-green-600 text-white rounded-xl hover:bg-green-700">
-                    See More
+                    Read More
                 </button>
             </div>
             <div className="w-1/2 flex items-center justify-center">
