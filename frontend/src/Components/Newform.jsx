@@ -87,7 +87,7 @@ const stateCityData = {
         "Kolkata", "Bankura", "Purulia", "Jhargram", "Alipurduar",
         "Nadia", "Hooghly"
     ],
-}; 
+};
 const Newform = () => {
     const [selectedState, setSelectedState] = useState('');
     const [cities, setCities] = useState([]);
