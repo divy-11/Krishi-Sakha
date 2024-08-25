@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = ({ set }) => {
     const [showProfile, setShowProfile] = useState(false);
-
+    const navigate = useNavigate();
     const toggleProfile = () => {
         setShowProfile(prev => !prev);
     };
@@ -81,8 +82,8 @@ export const Header = ({ set }) => {
                                 <button
                                     className="text-lg text-green-800 hover:underline hover:text-green-900 font-medium bg-transparent border-none cursor-pointer"
                                     onClick={() => {
-                                        // Add your logout logic here
-                                        console.log("Logged out");
+                                        localStorage.clear();
+                                        navigate("/signin");
                                     }}
                                 >
                                     Log Out

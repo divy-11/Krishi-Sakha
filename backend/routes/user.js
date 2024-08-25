@@ -46,6 +46,7 @@ app.post("/signup", async (req, res) => {
         const token = jwt.sign({ phone: req.body.phone }, JWT_TOKEN);
         res.status(200).json({
             message: userId,
+            user: req.body.phone,
             token: 'Bearer ' + token
         });
     } catch (error) {
@@ -77,7 +78,7 @@ app.post("/signin", async (req, res) => {
         const token = jwt.sign({ userID: user._id }, JWT_TOKEN);
         res.status(200).json({
             token: 'Bearer ' + token,
-            progress:"working",
+            user: req.body.phone,
             name: user.name // Adjust the field name accordingly
         });
     } catch (error) {

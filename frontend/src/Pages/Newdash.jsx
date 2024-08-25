@@ -1,19 +1,25 @@
+import { useState } from "react";
 import { Header } from "../Components/Header";
-import Newform from "../Components/Newform";
+import { Newform } from "../Components/Newform";
 import { Result } from "../Components/Result";
-import { Link } from "react-router-dom";
 
 export const Newdash = () => {
+    const [submittedData, setSubmittedData] = useState(null);
+
+    const handleDataSubmit = (data) => {
+        setSubmittedData(data);
+        console.log('Received data in parent:', data);
+    };
     return (
         <div className="h-screen">
             <Header set={"new"} />
             <div className="flex justify-center flex-col bg-green-100">
                 <div className="flex flex-col lg:flex-row w-full">
                     <div className="lg:flex-[6]">
-                        <Newform />
+                        <Newform onSubmitData={handleDataSubmit} />
                     </div>
                     <div className="lg:flex-[4]">
-                        <Result />
+                        <Result data={submittedData} />
                     </div>
                 </div>
             </div>
