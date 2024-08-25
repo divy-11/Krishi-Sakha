@@ -61,4 +61,4 @@ Excessive and improper use of fertilizers has led to soil degradation and declin
 
 ## Final Presentation
 
-For a detailed overview of the project, please refer to the [Final Presentation](./presentation.pdf) available in this repository.
+For a detailed overview of the project, please refer to the [Final Presentation](./Presentation.pdf) available in this repository.
