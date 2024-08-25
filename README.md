@@ -58,3 +58,7 @@ Excessive and improper use of fertilizers has led to soil degradation and declin
 - **Node.js**
 - **React.js**
 - **Tailwind CSS**
+
+## Final Presentation
+
+For a detailed overview of the project, please refer to the [Final Presentation](./presentation.pdf) available in this repository.
