@@ -10,19 +10,17 @@ const A = [
 ];
 
 export const Result = ({ data }) => {
-    // Check if data is null or not an array
     if (!Array.isArray(data) || data.length !== A.length) {
         return (
             <div className="h-full flex justify-center items-center bg-white p-4">
                 <div>
-                    <h2 className="text-xl font-bold mb-4">Result:</h2>
-                    <p>No valid data available</p>
+                    <h2 className="text-4xl font-bold my-4">Result:</h2>
+                    <p className='text-2xl my-4'>No valid data available</p>
                 </div>
             </div>
         );
     }
 
-    // Pair fertilizers with their respective data
     const pairedData = A.map((fertilizer, index) => ({
         fertilizer,
         value: data[index]
@@ -37,10 +35,10 @@ export const Result = ({ data }) => {
     return (
         <div className="h-full flex justify-center items-center bg-white p-4">
             <div>
-                <h2 className="text-4xl font-bold mb-4">Recommendations:</h2>
+                <h2 className="text-4xl font-bold my-4">Recommendations:</h2>
                 <ol>
                     {top3Fertilizers.map((fertilizer, index) => (
-                        <li key={index} className="text-2xl">
+                        <li key={index} className="text-2xl my-4">
                             {index+1}. {fertilizer}
                         </li>
                     ))}

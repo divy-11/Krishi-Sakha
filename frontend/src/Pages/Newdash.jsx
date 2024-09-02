@@ -11,7 +11,7 @@ export const Newdash = () => {
         console.log('Received data in parent:', data);
     };
     return (
-        <div className="h-screen">
+        <div>
             <Header set={"new"} />
             <div className="flex justify-center flex-col bg-green-100">
                 <div className="flex flex-col lg:flex-row w-full">

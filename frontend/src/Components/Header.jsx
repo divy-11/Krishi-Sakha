@@ -42,8 +42,8 @@ export const Header = ({ set }) => {
                             History
                         </button>
                     </Link>
-                    <div onClick={toggleProfile}>
-                        <Avatar className="hover:cursor-pointer	" src="/avatar.jpg" size="medium" />
+                    <div className="hover:cursor-pointer	" onClick={toggleProfile}>
+                        <Avatar src="/avatar.jpg" size="medium" />
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@ export const Header = ({ set }) => {
 export function Avatar({ src, size }) {
     return (
         <div
-            className={`relative inline-flex items-center justify-center overflow-hidden bg-gray-600 rounded-full ${size === "small" ? "w-6 h-6" : "w-10 h-10"}`}
+            className={`relative inline-flex items-center justify-center overflow-hidden bg-gray-600 rounded-full ${size === "small" ? "w-6 h-6" : "w-11 h-11"}`}
         >
             <img
                 src={src}

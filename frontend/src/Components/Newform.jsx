@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// List of crop options
 const cropList = [
     'Watermelon', 'Sugarcane', 'Lentil', 'MothBeans', 'Tur',
     'Groundnut', 'Wheat', 'Coconut', 'Cotton', 'Mango', 'Jowar',
@@ -13,7 +12,6 @@ const cropList = [
     'Oil seeds', 'Pulses'
 ];
 
-// Input Component
 function Input({ label, name, placeholder, className, value, onChange }) {
     return (
         <div className={className}>
@@ -30,7 +28,6 @@ function Input({ label, name, placeholder, className, value, onChange }) {
     );
 }
 
-// Newform Component
 export const Newform = ({ onSubmitData }) => {
     const [formValues, setFormValues] = useState({
         N: '',
@@ -52,11 +49,11 @@ export const Newform = ({ onSubmitData }) => {
     };
 
     const handleClick = async (e) => {
-        e.preventDefault(); // Prevent form submission reload
+        e.preventDefault(); 
         try {
             const response = await axios.post('http://localhost:8080/api/v1/recommendation', formValues);
             if (onSubmitData) {
-                onSubmitData(response.data); // Pass the data to the parent component
+                onSubmitData(response.data); 
             }
             console.log(response.data);
         } catch (error) {

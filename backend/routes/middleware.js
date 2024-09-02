@@ -1,5 +1,6 @@
+require('dotenv').config();
 const jwt = require("jsonwebtoken");
-const JWT_TOKEN = "devvv";
+const JWT_TOKEN = process.env.TOKEN_AUTH;
 
 function authMiddleware(req, res, next) {
     const authorization = req.headers.authorization;

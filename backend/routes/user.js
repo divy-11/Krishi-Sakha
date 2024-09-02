@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require("express");
 const { Users } = require("../db");
 const app = express.Router();
 const z = require("zod");
 const jwt = require("jsonwebtoken");
-const JWT_TOKEN = "devvv";
-
+const JWT_TOKEN = process.env.TOKEN_AUTH;
+console.log(JWT_TOKEN);
 const phoneP = z.string().regex(/^\d{10}$/, "Phone number must be exactly 10 digits");
 const nameP = z.string();
 const passP = z.string().min(6, "Password must be 6 or more characters long");
@@ -79,7 +80,6 @@ app.post("/signin", async (req, res) => {
         res.status(200).json({
             token: 'Bearer ' + token,
             user: req.body.phone,
-            name: user.name // Adjust the field name accordingly
         });
     } catch (error) {
         console.error("Signin error:", error);
@@ -88,7 +88,6 @@ app.post("/signin", async (req, res) => {
 });
 
 
-// Uncomment and use this part if needed
 /*
 const updateSchema = z.object({
     password: z.string().optional(),
@@ -105,26 +104,6 @@ app.put("/", authMiddleware, async (req, res) => {
     } else {
         res.status(400).json({ message: "Error while updating information" });
     }
-});
-
-app.get("/bulk", async (req, res) => {
-    const filter = req.query.filter || "";
-
-    const users = await Users.find({
-        $or: [
-            { firstName: { "$regex": new RegExp(filter, 'i') } },
-            { lastName: { "$regex": new RegExp(filter, 'i') } }
-        ]
-    });
-
-    res.json({
-        user: users.map(user => ({
-            username: user.username,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            _id: user._id
-        }))
-    });
 });
 */
 
