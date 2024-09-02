@@ -5,6 +5,7 @@
 **Create a data-driven solution that recommends optimal fertilizer types and quantities based on soil health, crop type, and weather patterns, ensuring sustainable agricultural practices.**
 
 ### Expected Solution
+
 Develop an application that analyzes soil data and provides tailored fertilizer recommendations, promoting sustainable farming while enhancing crop yield and farmer income.
 
 ## Motivation
@@ -40,8 +41,24 @@ Excessive and improper use of fertilizers has led to soil degradation and declin
 
 ## Tech Stack
 
+### Data Analysis
+
 - **Jupyter**
 - **Python**
 - **Pandas**
 - **Numpy**
 - **Scikit-Learn**
+
+### Web Development
+
+- **JavaScript**
+- **MongoDB**
+- **Mongoose**
+- **Express.js**
+- **Node.js**
+- **React.js**
+- **Tailwind CSS**
+
+## Final Presentation
+
+For a detailed overview of the project, please refer to the [Final Presentation](./Presentation.pdf) available in this repository.
