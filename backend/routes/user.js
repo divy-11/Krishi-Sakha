@@ -5,10 +5,10 @@ const app = express.Router();
 const z = require("zod");
 const jwt = require("jsonwebtoken");
 const JWT_TOKEN = process.env.TOKEN_AUTH;
-console.log(JWT_TOKEN);
-const phoneP = z.string().regex(/^\d{10}$/, "Phone number must be exactly 10 digits");
+// console.log(JWT_TOKEN);
+const phoneP = z.string().regex(/^\d{10}$/);
 const nameP = z.string();
-const passP = z.string().min(6, "Password must be 6 or more characters long");
+const passP = z.string().min(6);
 
 app.post("/signup", async (req, res) => {
     const nameValidation = nameP.safeParse(req.body.name);
@@ -18,7 +18,7 @@ app.post("/signup", async (req, res) => {
     const passcodeValidation = passP.safeParse(req.body.password);
 
     if (!phoneValidation.success) {
-        return res.status(400).json({ message: phoneValidation.error.errors[0].message });
+        return res.status(400).json({ message: "Phone number must be exactly 10 digits" });
     }
 
     if (!nameValidation.success || !stateValidation.success || !cityValidation.success) {
@@ -26,7 +26,7 @@ app.post("/signup", async (req, res) => {
     }
 
     if (!passcodeValidation.success) {
-        return res.status(400).json({ message: passcodeValidation.error.errors[0].message });
+        return res.status(400).json({ message: "Password must be 6 or more characters long" });
     }
 
     const sameUser = await Users.findOne({ phone: req.body.phone });
@@ -57,8 +57,8 @@ app.post("/signup", async (req, res) => {
 });
 
 const signinSchema = z.object({
-    phone: z.string().regex(/^\d{10}$/, "Phone number must be exactly 10 digits"),
-    password: z.string().min(6, "Password must be 6 or more characters long")
+    phone: z.string().regex(/^\d{10}$/),
+    password: z.string().min(6)
 });
 
 app.post("/signin", async (req, res) => {
@@ -87,8 +87,7 @@ app.post("/signin", async (req, res) => {
     }
 });
 
-
-/*
+/*Under Work
 const updateSchema = z.object({
     password: z.string().optional(),
     lastName: z.string().optional(),
@@ -106,5 +105,4 @@ app.put("/", authMiddleware, async (req, res) => {
     }
 });
 */
-
 module.exports = app;
