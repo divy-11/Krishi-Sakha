@@ -13,17 +13,7 @@ app.post('/api/v1/recommendation', async (req, res) => {
     const { N, P, K, pH, Rain, Temp, Humid, Crop } = req.body;
 
     try {
-        const response = await axios.post('http://localhost:8000/predict/', {
-            N,
-            P,
-            K,
-            pH,
-            Rain,
-            Temp,
-            Humid,
-            Crop
-        });
-
+        const response = await axios.post('http://localhost:8000/predict/', { N, P, K, pH, Rain, Temp, Humid, Crop });
         res.json(response.data[0]);
     } catch (error) {
         console.error('Error making prediction:', error.message);
