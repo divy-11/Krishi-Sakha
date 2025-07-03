@@ -31,6 +31,5 @@ def predict(data:BM):
     Temp = data['Temp']
     Humid = data['Humid']
     Crop = data['Crop']
-
     return model.predict_proba([[N,P,K,pH,Rain,Temp,Humid,Crop]]).tolist()
 
