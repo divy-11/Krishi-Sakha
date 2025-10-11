@@ -51,18 +51,17 @@ export const Newform = ({ onSubmitData }) => {
     const handleClick = async (e) => {
         e.preventDefault(); 
         try {
-            const response = await axios.post('http://localhost:8080/api/v1/recommendation', formValues);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/recommendation`, formValues);
             if (onSubmitData) {
                 onSubmitData(response.data); 
             }
-            console.log(response.data);
         } catch (error) {
             console.error('Error making request:', error);
         }
     };
 
     return (
-        <div className="h-screen flex justify-center items-center">
+        <div className="h-[88vh] flex justify-center items-center">
             <div className="bg-white p-6 w-full max-w-3xl rounded-2xl drop-shadow-lg">
                 <h2 className="font-bold text-2xl mb-4 text-center">Fertilizer Recommendation for Crops</h2>
                 <form onSubmit={handleClick} className="space-y-4">

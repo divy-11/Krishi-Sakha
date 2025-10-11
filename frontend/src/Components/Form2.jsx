@@ -10,12 +10,10 @@ export const FormA = () => {
 
     const handleSignIn = async () => {
         try {
-            const resp = await axios.post("http://localhost:8080/api/v1/user/signin", {
+            const resp = await axios.post(`${import.meta.env.VITE_API_URL}/user/signin`, {
                 phone: username,
                 password,
             });
-            
-            console.log(resp.data);
             localStorage.setItem("token", resp.data.token);
             localStorage.setItem("user", resp.data.user);
             navigate("/home");

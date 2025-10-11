@@ -5,7 +5,6 @@ const app = express.Router();
 const z = require("zod");
 const jwt = require("jsonwebtoken");
 const JWT_TOKEN = process.env.TOKEN_AUTH;
-// console.log(JWT_TOKEN);
 const phoneP = z.string().regex(/^\d{10}$/);
 const nameP = z.string();
 const passP = z.string().min(6);

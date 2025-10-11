@@ -8,12 +8,11 @@ export const Newdash = () => {
 
     const handleDataSubmit = (data) => {
         setSubmittedData(data);
-        console.log('Received data in parent:', data);
     };
     return (
         <div>
             <Header set={"new"} />
-            <div className="flex justify-center flex-col bg-green-100">
+            <div className="flex justify-center flex-col bg-green-100 ">
                 <div className="flex flex-col lg:flex-row w-full">
                     <div className="lg:flex-[6]">
                         <Newform onSubmitData={handleDataSubmit} />
