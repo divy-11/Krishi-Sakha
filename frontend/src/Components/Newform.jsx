@@ -51,12 +51,12 @@ export const Newform = ({ onSubmitData }) => {
     const handleClick = async (e) => {
         e.preventDefault(); 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/recommendation`, formValues);
+            const response = await axios.post(`${import.meta.env.VITE_FASTAPI_URL}/predict/`, formValues);
             if (onSubmitData) {
-                onSubmitData(response.data); 
+                onSubmitData(response.data[0]); 
             }
         } catch (error) {
-            console.error('Error making request:', error);
+            console.error('Error making prediction:', error.message);
         }
     };
 

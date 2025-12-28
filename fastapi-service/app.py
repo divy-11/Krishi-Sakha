@@ -4,8 +4,16 @@ from pydantic import BaseModel
 import pickle
 import numpy as np
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware( 
+    CORSMiddleware,
+    allow_origins=["*"],     
+    allow_credentials=True,
+    allow_methods=["*"],     
+    allow_headers=["*"],
+)
 
 pickle_in = open("pipe.pkl",'rb')
 model = pickle.load(pickle_in)
