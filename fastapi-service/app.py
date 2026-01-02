@@ -1,15 +1,17 @@
 from fastapi import FastAPI
-import pandas as pd 
 from pydantic import BaseModel
 import pickle
-import numpy as np
-import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 app = FastAPI()
+
+FRONTEND_URL = os.getenv("FRONTEND_URL")
 app.add_middleware( 
     CORSMiddleware,
-    allow_origins=["*"],     
+    allow_origins=[FRONTEND_URL],     
     allow_credentials=True,
     allow_methods=["*"],     
     allow_headers=["*"],
